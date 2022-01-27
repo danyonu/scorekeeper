@@ -1,0 +1,14 @@
+<div class="board">
+  <app-player-card
+    *ngFor="let player of players"
+    [player]="player"
+  ></app-player-card>
+  <button
+    class="start-new-game"
+    mat-raised-button
+    color="accent"
+    (click)="startNewGame()"
+  >
+    Start new game
+  </button>
+</div>

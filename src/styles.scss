@@ -1,4 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@use "sass:map";
+@import "~@angular/material/theming";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@include mat-core();
+// @debug map.get($mat-purple, 700);
+html,
+body {
+  height: 100%;
+  background-color: #323232;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: white;
+}

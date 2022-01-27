@@ -1,34 +1,50 @@
-import { Component, OnInit } from "@angular/core";
+import {
+  Component,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+} from "@angular/core";
 import { COMMA, ENTER } from "@angular/cdk/keycodes";
 import { MatChipInputEvent } from "@angular/material/chips";
+import { Player } from "src/app/interfaces/player.interface";
+import { PlayersService } from "src/app/services/players.service";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-add-players",
   templateUrl: "./add-players.component.html",
   styleUrls: ["./add-players.component.scss"],
 })
-export class AddPlayersComponent {
-  addOnBlur = true;
+export class AddPlayersComponent implements OnInit, OnDestroy {
+  @Output() onGameStatusChange = new EventEmitter<boolean>();
+
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
-  fruits: any[] = [{ name: "Lemon" }, { name: "Lime" }, { name: "Apple" }];
+  players: Player[] = [];
+  playersSubscription: Subscription;
+
+  constructor(private playersService: PlayersService) {}
+
+  ngOnInit(): void {
+    this.playersSubscription = this.playersService.players$.subscribe(
+      (players) => (this.players = players)
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.playersSubscription.unsubscribe();
+  }
 
   add(event: MatChipInputEvent): void {
-    const value = (event.value || "").trim();
-
-    // Add our fruit
-    if (value) {
-      this.fruits.push({ name: value });
-    }
-
-    // Clear the input value
+    this.playersService.add((event.value || "").trim());
     event.chipInput!.clear();
   }
 
-  remove(fruit: any): void {
-    const index = this.fruits.indexOf(fruit);
+  remove(player: any): void {
+    this.playersService.remove(player);
+  }
 
-    if (index >= 0) {
-      this.fruits.splice(index, 1);
-    }
+  startGame(): void {
+    this.onGameStatusChange.emit();
   }
 }

@@ -1,0 +1,15 @@
+.card {
+  background-color: #424242;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 5px;
+
+  .name {
+    text-transform: capitalize;
+    text-align: center;
+  }
+
+  .list {
+    width: 100%;
+  }
+}

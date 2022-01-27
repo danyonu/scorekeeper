@@ -1,0 +1,14 @@
+.add-player-list {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .list {
+    width: 100%;
+  }
+
+  .start-game {
+    margin: 50px;
+  }
+}

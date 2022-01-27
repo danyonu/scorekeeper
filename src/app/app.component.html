@@ -1,1 +1,8 @@
-<app-add-players></app-add-players>
+<app-add-players
+  *ngIf="!gameStatus"
+  (onGameStatusChange)="onGameStatusChange()"
+></app-add-players>
+<app-board
+  *ngIf="gameStatus"
+  (onGameStatusChange)="onGameStatusChange()"
+></app-board>

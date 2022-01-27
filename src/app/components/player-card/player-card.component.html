@@ -1,14 +1,16 @@
-<div class="add-player-list">
+<div class="card">
+  <h2 class="name">{{ player.name }}</h2>
+
   <mat-form-field class="list" appearance="fill">
     <mat-chip-list #chipList aria-label="players list">
-      <mat-chip *ngFor="let player of players" (removed)="remove(player)">
-        {{ player.name }}
+      <mat-chip *ngFor="let score of player.scores" (removed)="remove(score)">
+        {{ score }}
         <button matChipRemove>
           <mat-icon>cancel</mat-icon>
         </button>
       </mat-chip>
       <input
-        placeholder="Add player..."
+        placeholder="Add score..."
         [matChipInputFor]="chipList"
         [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
         [matChipInputAddOnBlur]="true"
@@ -16,13 +18,8 @@
       />
     </mat-chip-list>
   </mat-form-field>
-  <button
-    class="start-game"
-    mat-raised-button
-    color="accent"
-    (click)="startGame()"
-  >
-    Start
-  </button>
+
+  <div class="total">
+    <span>Total: {{ total }}</span>
+  </div>
 </div>
-<div class="button-wrapper"></div>
