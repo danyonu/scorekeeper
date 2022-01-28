@@ -5,6 +5,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { environment } from "src/environments/environment";
+import { provideFirebaseApp, initializeApp } from "@angular/fire/app";
 
 import { MatChipsModule } from "@angular/material/chips";
 import { MatIconModule } from "@angular/material/icon";
@@ -30,6 +31,7 @@ import { PlayerCardComponent } from "./components/player-card/player-card.compon
     MatIconModule,
     MatFormFieldModule,
     MatButtonModule,
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
   ],
   providers: [],
   bootstrap: [AppComponent],
