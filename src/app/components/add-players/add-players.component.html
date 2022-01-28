@@ -1,21 +1,23 @@
-<div class="add-player-list">
-  <mat-form-field class="list" appearance="fill">
-    <mat-chip-list #chipList aria-label="players list">
-      <mat-chip *ngFor="let player of players" (removed)="remove(player)">
-        {{ player.name }}
-        <button matChipRemove>
-          <mat-icon>cancel</mat-icon>
-        </button>
-      </mat-chip>
-      <input
-        placeholder="Add player..."
-        [matChipInputFor]="chipList"
-        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-        [matChipInputAddOnBlur]="true"
-        (matChipInputTokenEnd)="add($event)"
-      />
-    </mat-chip-list>
-  </mat-form-field>
+<div class="add-player-list-container">
+  <div class="add-player-list">
+    <mat-form-field class="list" appearance="fill">
+      <mat-chip-list #chipList aria-label="players list">
+        <mat-chip *ngFor="let player of players" (removed)="remove(player)">
+          {{ player.name }}
+          <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip>
+        <input
+          placeholder="Add player and hit Enter..."
+          [matChipInputFor]="chipList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          [matChipInputAddOnBlur]="true"
+          (matChipInputTokenEnd)="add($event)"
+        />
+      </mat-chip-list>
+    </mat-form-field>
+  </div>
   <button
     class="start-game"
     mat-raised-button
@@ -25,4 +27,3 @@
     Start
   </button>
 </div>
-<div class="button-wrapper"></div>

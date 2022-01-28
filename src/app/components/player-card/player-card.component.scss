@@ -1,15 +1,31 @@
 .card {
   background-color: #424242;
   border-radius: 5px;
-  margin: 10px 0;
+  margin-bottom: 16px;
   padding: 5px;
 
   .name {
     text-transform: capitalize;
     text-align: center;
+    margin: 4px 0 12px;
+    color: lightgray;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
   }
 
   .list {
     width: 100%;
+  }
+
+  ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    padding-top: 0 !important;
+  }
+
+  .total span {
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-left: 10px;
+    color: lightgrey;
   }
 }

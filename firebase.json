@@ -1,6 +1,5 @@
 {
   "hosting": {
-    "target": "scorekeeper",
     "public": "dist/scorekeeper",
     "ignore": [
       "firebase.json",

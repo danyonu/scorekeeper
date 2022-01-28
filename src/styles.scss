@@ -6,11 +6,16 @@
 // @debug map.get($mat-purple, 700);
 html,
 body {
-  height: 100%;
   background-color: #323232;
 }
 body {
-  margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   color: white;
+  box-sizing: content-box;
+  padding: 20px;
+  max-width: 640px;
+  position: relative;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
