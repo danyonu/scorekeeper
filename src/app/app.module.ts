@@ -15,6 +15,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { AddPlayersComponent } from "./components/add-players/add-players.component";
 import { BoardComponent } from "./components/board/board.component";
 import { PlayerCardComponent } from "./components/player-card/player-card.component";
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,12 @@ import { PlayerCardComponent } from "./components/player-card/player-card.compon
     MatFormFieldModule,
     MatButtonModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

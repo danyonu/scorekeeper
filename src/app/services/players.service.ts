@@ -20,9 +20,7 @@ export class PlayersService {
   }
 
   remove(player: Player) {
-    this.playersList = this.playersList.filter(
-      (player) => player.name !== player.name
-    );
+    this.playersList = this.playersList.filter((pl) => pl.name !== player.name);
     this.players.next(this.playersList);
   }
 
