@@ -5,14 +5,12 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyBBuhcR74aWjm7IQePCMpeBEPGH_FseDSw",
-    authDomain: "fitness-exercises-doc.firebaseapp.com",
-    databaseURL: "https://fitness-exercises-doc-default-rtdb.firebaseio.com",
-    projectId: "fitness-exercises-doc",
-    storageBucket: "fitness-exercises-doc.appspot.com",
-    messagingSenderId: "996879881461",
-    appId: "1:996879881461:web:16051d061f704fe73aa1bc",
-    measurementId: "G-Y0SE79WGCQ",
+    apiKey: "AIzaSyA7kEir5vNPm5uocXL5mK_3iXsSIWXaZmw",
+    authDomain: "scorekeeper-368bc.firebaseapp.com",
+    projectId: "scorekeeper-368bc",
+    storageBucket: "scorekeeper-368bc.appspot.com",
+    messagingSenderId: "111356824312",
+    appId: "1:111356824312:web:7e7a48348809879a09090d",
   },
 };
 
